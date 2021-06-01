@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro-style.css">
+    <title>Cadastre-se</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html" title="Toca da Bruxa">
+                        <img src="../img/LogoFinal.png">
+                        <img class="down" src="../img/atocadabruxa.png">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a class="decoration" href="../index.html">Início</a></li>
+                        <li><a class="decoration" href="sobre.html">Sobre</a></li>
+                        <li><a class="decoration" href="login.html">Login</a></li>
+                        <li class="item_selecionado">Cadastre-se</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="apresentacao">
+            <div class="tinteiro">
+                <img src="../img/tinteiro.png" alt="Tinteiro">
+            </div>
+
+            <div class="formbox">
+                <div class="formulario">
+                    <img src="../img/cadastre.png" alt="Cadastre-se">
+                    <br>
+
+                    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                        Nome Completo:<input class="input" type="text" name="nome" required> <br><br>
+                        Nome de Usuário: <input class="input" type="text" name="login" required> <br><br>
+                        Senha: <input class="input" type="password" name="senha" id="" required> <br><br>
+                        Confirme a Senha: <input class="input" type="password" name="" id="" required> <br><br>
+                        Tipo Numerológico: <input class="input" type="text" maxlength="1" minlength="1"
+                            name="fkNumerologia" id="" required> <br><br>
+                        <input type="submit" id="btn_entrar" value="Cadastrar" class="button">
+                    </form>
+                </div>
+
+                <img src="../img/aguarde.gif" id="img_aguarde" style="display: none; width:100px">
+
+                <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+                    Erro no cadastro
+                </div>
+            </div>
+
+        </div>
+ 
+    </main>
+
+    <footer>
+        <div class="footer">
+            <p>A Toca da Bruxa<br>Copyright @ 2021</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+
+</script>
