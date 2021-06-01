@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/nascimento-style.css">
+    <title>Que Dia Você Nasceu?</title>
+</head>
+<body>
+    <main class="main">
+        <div class="apresentacao">
+
+            <img class="sol" src="../img/sun.png" alt="Sol Esotérico">
+            
+            <div>
+                <h1>Antes de Continuarmos</h1>
+
+                <p class="text">Siga os passos abaixo para que possamos calcular seu tipo numerológico, 
+                    e darmos continuidade ao seu cadastro.
+                </p>
+
+                <p class="text">
+                    Como funciona? É simples, preencha cada campo abaixo com a data do seu nascimento.  
+                    (Exemplo: 2 + 4 + 0 + 2 + 1 + 9 + 9 + 7 = 34), e em seguida separe o resultado em números únicos e some novamente 
+                    nos respectivos campos, quando você obtiver apenas um número entre 1-9, esse é seu resultado 
+                    final. (Exemplo: 3 + 4 = 7)
+                </p>
+            </div>
+
+            <div>
+                <img src="../img/nascimento.png" alt="Data de Nascimento"><br><br>
+
+                <input class="input" type="text" id="dd1" maxlength="1" autofocus> + 
+                <input class="input" type="text" id="dd2" maxlength="1"> +
+                <input class="input" type="text" id="mm1" maxlength="1"> + 
+                <input class="input" type="text" id="mm2" maxlength="1"> +
+                <input class="input" type="text" id="aa1" maxlength="1"> + 
+                <input class="input" type="text" id="aa2" maxlength="1"> +
+                <input class="input" type="text" id="aa3" maxlength="1"> + 
+                <input class="input" type="text" id="aa4" maxlength="1" onkeyup="calcular()"> =
+                <span id="span_result"></span><br><br>
+                <input class="input_final" type="text" id="n1" maxlength="1"> +
+                <input class="input_final" type="text" id="n2" maxlength="1" onkeyup="somar()"> = 
+                <span id="span_result2"></span><br><br>
+                <div id="div_msg"></div><br>
+                <div class="div_botao" id="div_button"><a href="cadastro.html"><button class="button">Continuar para o cadastro</button></a></div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
+<img style="width: 250px;" src="" alt="">
+<script>
+    function calcular() {
+        var resultado = (Number(dd1.value) + Number(dd2.value) + Number(mm1.value) + Number(mm2.value) + 
+                        Number(aa1.value) + Number(aa2.value) + Number(aa3.value) + Number(aa4.value))
+
+            span_result.innerHTML = `<b>${resultado}</b>`
+    }
+
+    function somar() {
+        var resultado2 = (Number(n1.value) + Number(n2.value))
+        
+        span_result2.innerHTML = `<b>${resultado2}</b>`
+
+        if (resultado2 >= 10) {
+            n1.value = ''
+            n2.value = ''
+            div_msg.innerHTML = '<b>Agora Some esses dois números novamente</b>'
+        }
+
+        if (resultado2 == 1) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 1, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero1.png" alt="Número 1">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 2) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 2, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero2.png" alt="Número 2">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 3) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 3, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero3.png" alt="Número 3">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 4) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 4, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero4.png" alt="Número 4">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 5) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 5, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero5.png" alt="Número 5">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 6) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 6, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero6.png" alt="Número 6">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 7) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 7, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero7.png" alt="Número 7">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 8) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 8, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero8.png" alt="Número 8">'
+            div_button.style.display = "block"
+        } else if (resultado2 == 9) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 9, lembre desse número.</h1> <img style="width: 250px;" src="../img/numero9.png" alt="Número 9">'
+            div_button.style.display = "block"
+        }
+    }
+</script>
