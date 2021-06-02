@@ -35,9 +35,110 @@
     </header>
 
     <main>
-        <div>
-            <img class="card" src="../img/backcard.png" alt="">
+        <div class="apresentacao">
+            <div >
+                <img class="titulo" src="../img/cartadodia.png" alt="Carta do Dia">
+            </div>
+
+            <div >
+                <img class="card" src="../img/backcard.png" alt="Verso da Carta">
+            </div>
+
+            <div class="text">
+                <p>
+                    Como funciona? É simples, nesse módulo sortearemos apenas uma carta. <br>
+                    Essa carta será a regente da energia que permeia o seu dia, e como as coisas se desenrolam nele.
+                </p>
+            </div>
+
+            <button class="button" onclick="sortear()">Sortear Carta</button><br><br>
+
+            <div id="div_img"></div>
+
+            <div id="div_msg"></div>
+
         </div>
     </main>
+
+    <footer>
+        <div class="footer">
+            <p>A Toca da Bruxa<br>Copyright @ 2021</p>
+        </div>
+    </footer>
+
 </body>
 </html>
+
+<script>
+    function sortear() {
+        var sorteio = parseInt(Math.random()*22)
+
+      if (sorteio == 0) {
+        div_img.innerHTML = '<img class="card" src="../img/louco.png" alt="O Louco">'
+         '<h1>O Louco</h1>  Esta carta é um convite a que relaxemos. É preciso abrir horizontes e termos a capacidade de ajustar o nosso comportamento às situações que vão surgindo.'
+      } else if (sorteio == 1) {
+        div_img.innerHTML = '<img class="card" src="../img/mago.png" alt="O Mago">'
+        div_msg.innerHTML = '<h1>O Mago</h1> Novas possibilidades estão por vir e que a sua posição de dominante te ajudará a usufruir das boas coisas da vida. '
+      } else if (sorteio == 2) {
+        div_img.innerHTML = '<img class="card" src="../img/sacerdotisa.png" alt="A Sacerdotisa">'
+        div_msg.innerHTML = '<h1>A Grande Sacerdotisa</h1> Ela deixa clara a necessidade de introspecção para um trabalho de autoconhecimento.'
+      } else if (sorteio == 3) {
+        div_img.innerHTML = '<img class="card" src="../img/imperatriz.png" alt="A Imperatriz">'
+        div_msg.innerHTML = '<h1>A Imperatriz</h1> Por ser uma carta que significa fertilidade, A Imperatriz é um símbolo de nascimento e crescimento, como uma metáfora: nascimento de novas ideias, de novos projetos.'
+      } else if (sorteio == 4) {
+        div_img.innerHTML = '<img class="card" src="../img/imperador.png" alt="O Imperador">'
+        div_msg.innerHTML = '<h1>O Imperador</h1> É associada principalmente à figura paterna, que regula e ordena a vida familiar. O Imperador representa a lei, os limites e a ordem, no contexto de liderança e autoridade silenciosa.'
+      } else if (sorteio == 5) {
+        div_img.innerHTML = '<img class="card" src="../img/sacerdote.png" alt="O Sacerdote">'
+        div_msg.innerHTML = '<h1>O Sumo Sacerdote</h1> Esse arcano traz a necessidade de se viver sempre dentro da legalidade, seguindo os preceitos éticos, morais e de ordem.'
+      } else if (sorteio == 6) {
+        div_img.innerHTML = '<img class="card" src="../img/amantes.png" alt="Os Amantes">'
+        div_msg.innerHTML = '<h1>Os Amantes</h1> Representa oportunidades, benefícios e possíveis ofertas em sua vida neste momento. Ao mesmo tempo o livre-arbítrio e as indecisões podem dividir a sua opinião. '
+      } else if (sorteio == 7) {
+        div_img.innerHTML = '<img class="card" src="../img/carro.png" alt="O Carro">'
+        div_msg.innerHTML = '<h1>O Carro</h1> Representa um período de grande afeto e proteção, que pode trazer grandes e intensas atividades'
+      } else if (sorteio == 8) {
+        div_img.innerHTML = '<img class="card" src="../img/forca.png" alt="A Força">'
+        div_msg.innerHTML = '<h1>A Força</h1> É o momento de preservar a sua força interior para conseguir usar dela com maior destreza.'
+      } else if (sorteio == 9) {
+        div_img.innerHTML = '<img class="card" src="../img/eremita.png" alt="O Eremita">'
+        div_msg.innerHTML = '<h1>O Ermitão</h1> Ensina a desligar a mente e aproveitar o silêncio para obter iluminação e autoconhecimento.'
+      } else if (sorteio == 10) {
+        div_img.innerHTML = '<img class="card" src="../img/rodadafortuna.png" alt="A Roda da Fortuna">'
+        div_msg.innerHTML = '<h1>A Roda do Ano</h1> Quando a roda do ano gira, a mudança acontece. Se esta carta saiu para você, saiba que uma mudança está por vir.'
+      } else if (sorteio == 11) {
+        div_img.innerHTML = '<img class="card" src="../img/justica.png" alt="A Justiça">'
+        div_msg.innerHTML = '<h1>A Justiça</h1> Está te dizendo que é preciso agir com ética e clareza nesse momento. A balança sempre se ajusta para o lado verdadeiro.'
+      } else if (sorteio == 12) {
+        div_img.innerHTML = '<img class="card" src="../img/enforcado.png" alt="O Enforcado">'
+        div_msg.innerHTML = '<h1>O Enforcado</h1> Está apontando para a necessidade de um aprofundamento espiritual em sua vida. É hora de deixar o controle para trás, de ficar se debatendo com as coisas ao invés de encará-las de frente.'
+      } else if (sorteio == 13) {
+        div_img.innerHTML = '<img class="card" src="../img/morte.png" alt="A Morte">'
+        div_msg.innerHTML = '<h1>A Morte</h1> Significa essencialmente transformação, metamorfose ou qualquer processo em que algo tem de morrer para deixar nascer uma outra coisa.'
+      } else if (sorteio == 14) {
+        div_img.innerHTML = '<img class="card" src="../img/temperanca.png" alt="A Temperança">'
+        div_msg.innerHTML = '<h1>A Temperança A Temperança, além disso, está lembrando que é hora de assumir o controle sobre a sua própria estabilidade. Tenha cuidado com qualquer exagero e faça as coisas com cuidado. Não tome decisões e ações com pressa, tenha paciência e trabalhe com integridade.</h1>'
+      } else if (sorteio == 15) {
+        div_img.innerHTML = '<img class="card" src="../img/sombra.png" alt="A Sombra">'
+        div_msg.innerHTML = '<h1>A Sombra</h1> Mostra que, em momentos de dualidade, você opta por escolher o caminho que te trará uma gratificação momentânea, mesmo que isso sacrifique um benefício importante de longo prazo.'
+      } else if (sorteio == 16) {
+        div_img.innerHTML = '<img class="card" src="../img/torre.png" alt="A Torre">'
+        div_msg.innerHTML = '<h1>A Torre</h1> Ela significa mudança radical, choque ou desconstrução violenta dos valores.'
+      } else if (sorteio == 17) {
+        div_img.innerHTML = '<img class="card" src="../img/estrela.png" alt="A Estrela">'
+        div_msg.innerHTML = '<h1>A Estrela</h1> É um momento de renovação total, de esperança e libertação, um verdadeiro sopro de ar fresco em sua vida.'
+      } else if (sorteio == 18) {
+        div_img.innerHTML = '<img class="card" src="../img/alua.png" alt="A Lua">'
+        div_msg.innerHTML = '<h1>A Lua</h1> É preciso aceitar e abraçar o fato de que não compreendemos tudo e de que temos que conhecer mais a fundo nossas próprias personalidades.'
+      } else if (sorteio == 19) {
+        div_img.innerHTML = '<img class="card" src="../img/sol.png" alt="O Sol">'
+        div_msg.innerHTML = '<h1>O Sol</h1> É um momento para sorrir e alegrar-se. Trata-se de um lembrete de que viver é uma grande dádiva e de que cada detalhe de nossas vidas guarda um elemento sagrado.'
+      } else if (sorteio == 20) {
+        div_img.innerHTML = '<img class="card" src="../img/karma.png" alt="O Karma">'
+        div_msg.innerHTML = '<h1>O Karma</h1> Significa um grande perdão e uma redenção do que fizemos no passado, para podermos encarar o presente de maneira completa e intensa.'
+      } else if (sorteio == 21) {
+        div_img.innerHTML = '<img class="card" src="../img/mundo.png" alt="O Mundo">'
+        div_msg.innerHTML = '<h1>O Mundo</h1> É o momento de permitir que uma nova fase seja iniciada na vida. As lições foram aprendidas, os desafios ultrapassados, e é preciso aceitar os frutos e começar a planejar os novos passos.'
+      }
+    }
+</script>
