@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/calculadora-style.css">
+    <script type="text/javascript" src="funcoes.js"></script>
+    <title>Calculadora Numerológica</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../index.html" title="Toca da Bruxa">
+                        <img src="../img/LogoFinal.png">
+                        <img class="down" src="../img/atocadabruxa.png">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a class="decoration" href="inicio.html">Início</a></li>
+                        <li><a class="decoration" href="sobre-on.html">Sobre</a></li>
+                        <li class="item_selecionado">Numerologia</li>
+                        <li><a class="decoration" href="tarot.html">Tarot</a></li>
+                        <li><a class="decoration" href="livros.html">Livros</a></li>
+                        <li><a class="decoration" onclick="logoff()" href="../index.html">Sair</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="apresentacao">
+
+            <div>
+                <img class="trevo" src="../img/numeros.png" alt="Vários números em formato de trevo de quatro folhas">
+
+                <br><br>
+
+                <img src="../img/numerologia.png" alt="Numerologia">
+            </div>
+
+            <div>
+                <p class="text">
+                    Como funciona? É simples, preencha cada campo abaixo com a data do seu nascimento.
+                    (Exemplo: 2 + 4 + 0 + 2 + 1 + 9 + 9 + 7 = 34), e em seguida separe o resultado em números únicos e
+                    some novamente
+                    nos respectivos campos, quando você obtiver apenas um número entre 1-9, esse é seu resultado
+                    final. (Exemplo: 3 + 4 = 7)
+                </p>
+            </div>
+            
+            <div>
+                <img src="../img/nascimento.png" alt="Data de Nascimento"><br><br>
+
+                <input class="input" type="text" id="dd1" maxlength="1" autofocus> +
+
+                <input class="input" type="text" id="dd2" maxlength="1"> +
+
+                <input class="input" type="text" id="mm1" maxlength="1"> +
+
+                <input class="input" type="text" id="mm2" maxlength="1"> +
+
+                <input class="input" type="text" id="aa1" maxlength="1"> +
+
+                <input class="input" type="text" id="aa2" maxlength="1"> +
+
+                <input class="input" type="text" id="aa3" maxlength="1"> +
+
+                <input class="input" type="text" id="aa4" maxlength="1" onkeyup="calcular()"> =
+
+                <span id="span_result"></span><br><br>
+
+                <input class="input_final" type="text" id="n1" maxlength="1"> +
+
+                <input class="input_final" type="text" id="n2" maxlength="1" onkeyup="somar()"> =
+
+                <span id="span_result2"></span><br><br>
+
+                <div class="mensagem" id="div_msg"></div><br>
+
+                <div class="div_botao" id="div_button1"><a href="personalidade1.html">
+                    <button class="button">Mais sobre a Personalidade 1</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button2"><a href="personalidade2.html">
+                    <button class="button">Mais sobre a Personalidade 2</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button3"><a href="personalidade3.html">
+                    <button class="button">Mais sobre a Personalidade 3</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button4"><a href="personalidade4.html">
+                    <button class="button">Mais sobre a Personalidade 4</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button5"><a href="personalidade5.html">
+                    <button class="button">Mais sobre a Personalidade 5</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button6"><a href="personalidade6.html">
+                    <button class="button">Mais sobre a Personalidade 6</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button7"><a href="personalidade7.html">
+                    <button class="button">Mais sobre a Personalidade 7</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button8"><a href="personalidade8.html">
+                    <button class="button">Mais sobre a Personalidade 8</button></a>
+                </div>
+
+                <div class="div_botao" id="div_button9"><a href="personalidade9.html">
+                    <button class="button">Mais sobre a Personalidade 9</button></a>
+                </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <p>A Toca da Bruxa<br>Copyright @ 2021</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var resultado = (Number(dd1.value) + Number(dd2.value) + Number(mm1.value) + Number(mm2.value) +
+            Number(aa1.value) + Number(aa2.value) + Number(aa3.value) + Number(aa4.value))
+
+        span_result.innerHTML = `<b>${resultado}</b>`
+    }
+
+    function somar() {
+        var resultado2 = (Number(n1.value) + Number(n2.value))
+
+        span_result2.innerHTML = `<b>${resultado2}</b>`
+
+        if (resultado2 >= 10) {
+            n1.value = ''
+            n2.value = ''
+            div_msg.innerHTML = '<b>Agora Some esses dois números novamente</b>'
+        }
+
+        if (resultado2 == 1) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 1</h1> <img style="width: 250px;" src="../img/numero1.png" alt="Número 1">'
+            div_button1.style.display = "block"
+        } else if (resultado2 == 2) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 2</h1> <img style="width: 250px;" src="../img/numero2.png" alt="Número 2">'
+            div_button2.style.display = "block"
+        } else if (resultado2 == 3) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 3</h1> <img style="width: 250px;" src="../img/numero3.png" alt="Número 3">'
+            div_button3.style.display = "block"
+        } else if (resultado2 == 4) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 4</h1> <img style="width: 250px;" src="../img/numero4.png" alt="Número 4">'
+            div_button4.style.display = "block"
+        } else if (resultado2 == 5) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 5</h1> <img style="width: 250px;" src="../img/numero5.png" alt="Número 5">'
+            div_button5.style.display = "block"
+        } else if (resultado2 == 6) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 6</h1> <img style="width: 250px;" src="../img/numero6.png" alt="Número 6">'
+            div_button6.style.display = "block"
+        } else if (resultado2 == 7) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 7</h1> <img style="width: 250px;" src="../img/numero7.png" alt="Número 7">'
+            div_button7.style.display = "block"
+        } else if (resultado2 == 8) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 8</h1> <img style="width: 250px;" src="../img/numero8.png" alt="Número 8">'
+            div_button8.style.display = "block"
+        } else if (resultado2 == 9) {
+            div_msg.innerHTML = '<br><br><h1>Você é Personalidade Tipo 9</h1> <img style="width: 250px;" src="../img/numero9.png" alt="Número 9">'
+            div_button9.style.display = "block"
+        }
+    }
+</script>
